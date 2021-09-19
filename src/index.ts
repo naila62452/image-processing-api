@@ -19,7 +19,7 @@ app.get('/images', (req, res) => {
   if (heightResize) {
     height = Number(heightResize);
   }
-  sharp('image-processing-api/images/assets' + req.query.filename)
+  sharp('./assets.images' + req.query.filename)
     .resize({ width: width, height: height })
     .toBuffer()
     .then((data) => {
@@ -32,4 +32,4 @@ app.get('/images', (req, res) => {
 
 app.listen(port, () => {
   console.log(`Listening to the port http://localhost:${port}`);
-});
+})
